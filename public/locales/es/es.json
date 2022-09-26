@@ -1,0 +1,10 @@
+{
+    "login": {
+        "title": "Trabajadores - Siglo 21",
+        "form": {
+            "mail": "Correo",
+            "password": "Contraseña"
+        },
+        "login": "Iniciar sesión"
+    }
+}

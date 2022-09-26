@@ -4,8 +4,13 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { useState } from 'react'
 import { Login as LoginIcon } from '@resources'
+import { useTranslation } from 'react-i18next'
+
+// import i18next from 'i18next'
 
 const Login: NextPage = ({}) => {
+    const { t } = useTranslation()
+
     const [login, setLogin] = useState({
         mail: '',
         password: '',
@@ -35,12 +40,12 @@ const Login: NextPage = ({}) => {
                         <div className=" md:w-80">
                             <div className="">
                                 <h1 className="font-black mb-6 text-center">
-                                    Trabajadores - Siglo 21
+                                    {t('login.title')}
                                 </h1>
                             </div>
                             <div>
                                 <Input
-                                    name="Correo"
+                                    name={t('login.form.mail')}
                                     onChange={handleChangeLoginData}
                                     value={mail}
                                     type="text"
@@ -48,7 +53,7 @@ const Login: NextPage = ({}) => {
                                 />
                                 <div className="mt-6">
                                     <Input
-                                        name="Contraseña"
+                                        name={t('login.form.password')}
                                         onChange={handleChangeLoginData}
                                         value={password}
                                         type="password"
@@ -59,7 +64,7 @@ const Login: NextPage = ({}) => {
                                     style="text-center mt-6"
                                     type="primary"
                                     size="auto"
-                                    text="Iniciar sesión"
+                                    text={t('login.login')}
                                 />
                             </div>
                         </div>
