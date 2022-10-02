@@ -5,6 +5,7 @@ interface Props {
     text: string
     type: 'primary' | 'secondary' | 'link'
     style?: string
+    onClick: () => void
 }
 
 export const Button: React.FC<Props> = ({
@@ -12,10 +13,12 @@ export const Button: React.FC<Props> = ({
     text,
     type = 'primary',
     style,
+    onClick,
 }: Props) => {
     return (
         <div className={style}>
             <button
+                onClick={onClick}
                 className={`
                     ${Theme.button.colors[type]?.background} px-8 py-2
                     ${Theme.button.colors[type]?.textColor}
