@@ -4,6 +4,8 @@ import { render, screen } from '@testing-library/react'
 
 import '@testing-library/jest-dom'
 import Login from '../pages/login'
+import { Provider } from 'react-redux'
+import { configureStore } from '@reduxjs/toolkit'
 
 jest.mock('react-i18next', () => ({
     // this mock makes sure any components using the translate hook can use it without a warning being shown
@@ -19,10 +21,6 @@ jest.mock('react-i18next', () => ({
 
 jest.mock('services/LoginService', () => ({
     LoginService: () => Promise.resolve({ ok: false }),
-}))
-
-jest.mock('hooks/useTestHook', () => ({
-    useTestHook: () => false,
 }))
 
 describe('Home', () => {

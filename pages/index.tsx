@@ -1,8 +1,24 @@
+import { DashboardChip } from 'components/dashboardChip'
 import { Button, Input } from 'components/form'
+import { Navbar } from 'components/navbar'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import { useState } from 'react'
+import {
+    Bar,
+    BarChart,
+    CartesianGrid,
+    Legend,
+    Pie,
+    PieChart,
+    ResponsiveContainer,
+    Tooltip,
+    XAxis,
+    YAxis,
+} from 'recharts'
+import { BsWallet2 } from 'react-icons/bs'
+import { HiOutlineNewspaper } from 'react-icons/hi'
 
 const Home: NextPage = () => {
     return (
@@ -15,7 +31,213 @@ const Home: NextPage = () => {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <h1>Siglo 21 home page</h1>
+            <Navbar />
+            <div className="bg-[#4B6283]  px-4 py-4">
+                <h3 className="font-black mb-4">Estadísticas de este mes</h3>
+                <div className="grid grid-cols-12 gap-4 ">
+                    <div className="col-span-6 md:col-span-3 ">
+                        <DashboardChip
+                            background="bg-[#A9DFBF]"
+                            iconBackground="bg-[#58D68D]"
+                            title="Total ventas"
+                            value="$18.990.000"
+                            icon={
+                                <BsWallet2 style={{ padding: 16 }} size={60} />
+                            }
+                        />
+                    </div>
+                    <div className="col-span-6 md:col-span-3">
+                        <DashboardChip
+                            background="bg-[#F5CBA7]"
+                            iconBackground="bg-[#F0B27A]"
+                            title="Boletas Emitidas"
+                            value="782"
+                            icon={
+                                <HiOutlineNewspaper
+                                    style={{ padding: 16 }}
+                                    size={60}
+                                />
+                            }
+                        />
+                    </div>
+                    <div className="col-span-6 md:col-span-3">
+                        <DashboardChip
+                            background="bg-[#D7BDE2]"
+                            iconBackground="bg-[#BB8FCE]"
+                            title="Gastos Restaurant"
+                            value="4.698.000"
+                            icon={
+                                <BsWallet2 style={{ padding: 16 }} size={60} />
+                            }
+                        />
+                    </div>
+                    <div className="col-span-6 md:col-span-3">
+                        <DashboardChip
+                            background="bg-[#AED6F1]"
+                            iconBackground="bg-[#5DADE2]"
+                            title="Gastos Bar"
+                            value="2.109.000"
+                            icon={
+                                <BsWallet2 style={{ padding: 16 }} size={60} />
+                            }
+                        />
+                    </div>
+                </div>
+                <div className="grid grid-cols-12">
+                    <div className="col-span-12 sm:col-span-12 md:col-span-6 lg:col-span-6">
+                        <h3 className="font-black my-4">
+                            Ventas por mes (en millones)
+                        </h3>
+                        <ResponsiveContainer width="100%" height={300}>
+                            <BarChart
+                                title="Ventas por mes"
+                                data={[
+                                    { name: 'Enero', Restaurante: 16, Bar: 6 },
+                                    {
+                                        name: 'Febrero',
+                                        Restaurante: 18,
+                                        Bar: 8,
+                                    },
+                                    { name: 'Marzo', Restaurante: 10, Bar: 3 },
+                                    { name: 'Abril', Restaurante: 12, Bar: 4 },
+                                    { name: 'Mayo', Restaurante: 8, Bar: 2 },
+                                    { name: 'Junio', Restaurante: 11, Bar: 5 },
+                                    { name: 'Julio', Restaurante: 15, Bar: 7 },
+                                    { name: 'Agosto', Restaurante: 13, Bar: 6 },
+                                ]}
+                            >
+                                <CartesianGrid
+                                    fill="#4B6283"
+                                    strokeDasharray="3 3"
+                                />
+                                <XAxis dataKey="name" stroke="black" />
+                                <YAxis stroke="black" />
+                                <Tooltip />
+                                <Legend />
+                                <Bar dataKey="Restaurante" fill="#8884d8" />
+                                <Bar dataKey="Bar" fill="#82ca9d" />
+                            </BarChart>
+                        </ResponsiveContainer>
+                    </div>
+                    <div className="col-span-12 sm:col-span-12 md:col-span-6 lg:col-span-6">
+                        <h3 className="font-black my-4">
+                            Gastos por mes (en millones)
+                        </h3>
+                        <ResponsiveContainer width="100%" height={300}>
+                            <BarChart
+                                data={[
+                                    { name: 'Enero', Restorant: 4, Bar: 1 },
+                                    { name: 'Febrero', Restorant: 5, Bar: 1.5 },
+                                    { name: 'Marzo', Restorant: 2, Bar: 0.7 },
+                                    { name: 'Abril', Restorant: 2.7, Bar: 0.8 },
+                                    { name: 'Mayo', Restorant: 1.2, Bar: 0.4 },
+                                    { name: 'Junio', Restorant: 3, Bar: 1 },
+                                    { name: 'Julio', Restorant: 3.5, Bar: 1.2 },
+                                    { name: 'Agosto', Restorant: 4, Bar: 1.5 },
+                                ]}
+                            >
+                                <CartesianGrid strokeDasharray="3 3" />
+                                <XAxis dataKey="name" stroke="black" />
+                                <YAxis stroke="black" />
+                                <Tooltip />
+                                <Legend />
+                                <Bar dataKey="Restorant" fill="#8884d8" />
+                                <Bar dataKey="Bar" fill="#82ca9d" />
+                            </BarChart>
+                        </ResponsiveContainer>
+                    </div>
+                    <div className="col-span-12 sm:col-span-12 md:col-span-6 lg:col-span-6">
+                        <h3 className="font-black my-4">
+                            Platos mas solicitados (TOP 5)
+                        </h3>
+                        <ResponsiveContainer width="100%" height={300}>
+                            <PieChart>
+                                <Pie
+                                    data={[
+                                        {
+                                            name: 'Porotos',
+                                            value: 600,
+                                            fill: '#82ca9d',
+                                        },
+                                        {
+                                            name: 'Bistec a lo pobre',
+                                            value: 1000,
+                                        },
+                                        {
+                                            name: 'Lasagña',
+                                            value: 1800,
+                                            fill: '#F7DC6F',
+                                        },
+                                        {
+                                            name: 'Machas a la parmesana',
+                                            value: 1500,
+                                            fill: '#D2B4DE',
+                                        },
+                                        {
+                                            name: 'Fetuccini alfredo',
+                                            value: 1200,
+                                            fill: '#D98880',
+                                        },
+                                    ]}
+                                    dataKey="value"
+                                    nameKey="name"
+                                    cx="50%"
+                                    cy="50%"
+                                    outerRadius={50}
+                                    fill="#8884d8"
+                                />
+                                <Tooltip />
+                                <Legend />
+                            </PieChart>
+                        </ResponsiveContainer>
+                    </div>
+                    <div className="col-span-12 sm:col-span-12 md:col-span-6 lg:col-span-6">
+                        <h3 className="font-black my-4">
+                            Platos menos solicitados (TOP 5)
+                        </h3>
+                        <ResponsiveContainer width="100%" height={300}>
+                            <PieChart>
+                                <Pie
+                                    data={[
+                                        {
+                                            name: 'Lentejas',
+                                            value: 200,
+                                            fill: '#82ca9d',
+                                        },
+                                        {
+                                            name: 'Mariscal',
+                                            value: 150,
+                                        },
+                                        {
+                                            name: 'Paella',
+                                            value: 350,
+                                            fill: '#F7DC6F',
+                                        },
+                                        {
+                                            name: 'Guatitas a la jardinera',
+                                            value: 70,
+                                            fill: '#D2B4DE',
+                                        },
+                                        {
+                                            name: 'Empanada napolitana',
+                                            value: 300,
+                                            fill: '#D98880',
+                                        },
+                                    ]}
+                                    dataKey="value"
+                                    nameKey="name"
+                                    cx="50%"
+                                    cy="50%"
+                                    outerRadius={50}
+                                    fill="#8884d8"
+                                />
+                                <Tooltip />
+                                <Legend />
+                            </PieChart>
+                        </ResponsiveContainer>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

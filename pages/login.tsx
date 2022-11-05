@@ -8,10 +8,11 @@ import { useTranslation } from 'react-i18next'
 import { useAppDispatch, useAppSelector } from 'hooks'
 import { handleLoginUser, handleLogout } from 'store/slices/login'
 import { showAlert } from 'store/slices/alert'
+import { useRouter } from 'next/router'
 
 const Login: NextPage = ({}) => {
     const { t } = useTranslation()
-
+    const router = useRouter()
     const [login, setLogin] = useState({
         mail: '',
         password: '',
@@ -28,19 +29,19 @@ const Login: NextPage = ({}) => {
     }
 
     const handleLogin = async () => {
-        try {
+        console.log('Handle login')
+        const resp = await dispatch(handleLoginUser(login))
+        console.log('RESPONSE ===>', resp.payload)
+        if (resp?.payload?.ok) {
+            router.push('/')
+        } else {
             dispatch(
                 showAlert({
                     title: 'Ocurrío un error',
                     text: 'Por favor revisa tu correo y/o contraseña.',
                     type: 'error',
-                    buttons: {
-                        // cancelText: 'Quiero cancelar mi suscripción',
-                    },
                 })
             )
-        } catch (error) {
-            console.log(error)
         }
     }
 
