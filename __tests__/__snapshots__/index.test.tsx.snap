@@ -1,0 +1,135 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home renders a login 1`] = `
+<div>
+  <div>
+    <div
+      class="h-screen flex bg-gray-100"
+    >
+      <div
+        class="m-auto divide-x bg-white shadow-lg rounded-md flex-row flex"
+      >
+        <div
+          class="my-auto bg-white px-12 py-6 text-left"
+        >
+          <div
+            class=" md:w-80"
+          >
+            <div
+              class=""
+            >
+              <p
+                data-testid="isLogged"
+              >
+                false
+              </p>
+              <h1
+                class="font-black mb-6 text-center"
+                data-testid="login_title"
+              >
+                login.title
+              </h1>
+            </div>
+            <div>
+              <div>
+                <label
+                  class="block text-md text-gray-900 font-medium"
+                  for="login.form.mail"
+                >
+                  login.form.mail
+                </label>
+                <div
+                  class="relative mt-1 rounded-md shadow-sm"
+                >
+                  <div
+                    class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"
+                  />
+                  <input
+                    class="block w-full rounded-md border-black undefined undefined  focus:border-primary-50 focus:ring-primary-50 sm:text-sm"
+                    id="mail"
+                    name="mail"
+                    type="text"
+                    value=""
+                  />
+                  <div
+                    class="absolute inset-y-0 right-0 flex items-center"
+                  />
+                </div>
+              </div>
+              <div
+                class="mt-6"
+              >
+                <div>
+                  <label
+                    class="block text-md text-gray-900 font-medium"
+                    for="login.form.password"
+                  >
+                    login.form.password
+                  </label>
+                  <div
+                    class="relative mt-1 rounded-md shadow-sm"
+                  >
+                    <div
+                      class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"
+                    />
+                    <input
+                      class="block w-full rounded-md border-black undefined undefined  focus:border-primary-50 focus:ring-primary-50 sm:text-sm"
+                      id="password"
+                      name="password"
+                      type="password"
+                      value=""
+                    />
+                    <div
+                      class="absolute inset-y-0 right-0 flex items-center"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="text-center mt-6"
+              >
+                <button
+                  class="
+                    bg-primary-50 px-8 py-2
+                    text-white
+                    border-primary-50 border-2
+                    rounded font-bold text-ellipsis overflow-hidden whitespace-nowrap 
+                     transition ease-in-out delay-150  
+                     hover:bg-primary-200 hover:border-primary-200 duration-300"
+                >
+                  login.login
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="hidden md:block bg-white px-12 py-6 text-left"
+        >
+          <span
+            style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
+          >
+            <span
+              style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
+            >
+              <img
+                alt=""
+                aria-hidden="true"
+                src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27200%27%20height=%27400%27/%3e"
+                style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
+              />
+            </span>
+            <img
+              data-nimg="intrinsic"
+              decoding="async"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+            />
+            <noscript />
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

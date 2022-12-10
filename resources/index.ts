@@ -1,1 +1,3 @@
-// example to export easily a image/svg export { default as VercelLogo } from './vercel.svg'
+export { default as Login } from './login.svg'
+export { default as SigloLogo } from './siglo.png'
+export { default as Palta } from './palta.jpeg'
