@@ -1,4 +1,6 @@
 import '../styles/globals.css'
+import 'react-toastify/dist/ReactToastify.css'
+import 'react-calendar/dist/Calendar.css'
 import React from 'react'
 import type { AppProps } from 'next/app'
 import { ni18nConfig } from 'ni18n.config'
@@ -7,6 +9,8 @@ import { Provider } from 'react-redux'
 import { store } from 'store'
 import { persistStore } from 'redux-persist'
 import { PersistGate } from 'redux-persist/integration/react'
+import { NextUIProvider } from '@nextui-org/react'
+import { ToastContainer } from 'react-toastify'
 
 let persistor = persistStore(store)
 
@@ -22,9 +26,12 @@ function AppProvider({ children }: { children: React.ReactNode }) {
 
 function App({ Component, pageProps }: AppProps) {
     return (
-        <AppProvider>
-            <Component {...pageProps} />
-        </AppProvider>
+        <NextUIProvider>
+            <AppProvider>
+                <Component {...pageProps} />
+            </AppProvider>
+            <ToastContainer />
+        </NextUIProvider>
     )
 }
 

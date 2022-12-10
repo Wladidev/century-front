@@ -1,4 +1,3 @@
-import { Button, Input } from 'components/form'
 import { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -9,6 +8,15 @@ import { useAppDispatch, useAppSelector } from 'hooks'
 import { handleLoginUser, handleLogout } from 'store/slices/login'
 import { showAlert } from 'store/slices/alert'
 import { useRouter } from 'next/router'
+import {
+    Button,
+    Col,
+    Container,
+    Grid,
+    Input,
+    Row,
+    Text,
+} from '@nextui-org/react'
 
 const Login: NextPage = ({}) => {
     const { t } = useTranslation()
@@ -24,6 +32,8 @@ const Login: NextPage = ({}) => {
     const handleChangeLoginData = (e: { target: HTMLInputElement }) => {
         const key = e.target.id
         const value = e.target.value
+        console.log('EEEE ===>', e)
+        console.log('key ===>', key, value)
 
         setLogin((old) => ({ ...old, [key]: value }))
     }
@@ -46,7 +56,7 @@ const Login: NextPage = ({}) => {
     }
 
     return (
-        <div>
+        <>
             <Head>
                 <title>Login | Siglo 21</title>
                 <meta
@@ -55,51 +65,72 @@ const Login: NextPage = ({}) => {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <div className="h-screen flex bg-gray-100">
-                <div className="m-auto divide-x bg-white shadow-lg rounded-md flex-row flex">
-                    <div className="my-auto bg-white  px-12 py-6 text-left">
-                        <div className=" md:w-80">
-                            <div className="">
-                                <h1
-                                    data-testid="login_title"
-                                    className="font-black mb-6 text-center"
-                                >
-                                    {t('login.title')}
-                                </h1>
-                            </div>
-                            <div>
+            <Grid.Container justify="center" css={{ height: '100vh' }}>
+                <Grid
+                    xs={11}
+                    md={5}
+                    lg={4}
+                    css={{
+                        mx: 'auto',
+                        my: 'auto',
+                        shadow: '$xl',
+                        borderRadius: '$sm',
+                        p: '$6',
+                    }}
+                >
+                    <Grid.Container>
+                        <Grid xs={12}>
+                            <Text css={{ textAlign: 'center', flex: 1 }}>
+                                Iniciar Sesión - Siglo 21
+                            </Text>
+                        </Grid>
+                        <Grid xs={12}>
+                            <Grid xs={8} css={{ mx: 'auto', my: '$14' }}>
                                 <Input
-                                    name={t('login.form.mail')}
                                     onChange={handleChangeLoginData}
-                                    value={mail}
-                                    type="text"
+                                    type="email"
                                     id="mail"
+                                    itemID="mail"
+                                    clearable
+                                    css={{ width: '100%' }}
+                                    bordered
+                                    labelPlaceholder="Correo"
                                 />
-                                <div className="mt-6">
-                                    <Input
-                                        name={t('login.form.password')}
-                                        onChange={handleChangeLoginData}
-                                        value={password}
-                                        type="password"
-                                        id="password"
-                                    />
-                                </div>
+                            </Grid>
+                        </Grid>
+                        <Grid xs={12}>
+                            <Grid
+                                xs={8}
+                                css={{ mx: 'auto', mt: '$6', mb: '$14' }}
+                            >
+                                <Input.Password
+                                    clearable
+                                    css={{ width: '100%' }}
+                                    bordered
+                                    id="password"
+                                    onChange={handleChangeLoginData}
+                                    type="password"
+                                    labelPlaceholder="Contraseña"
+                                />
+                            </Grid>
+                        </Grid>
+                        <Grid xs={12}>
+                            <Grid
+                                xs={8}
+                                css={{ mx: 'auto', mt: '$6', mb: '$14' }}
+                            >
                                 <Button
-                                    style="text-center mt-6"
-                                    type="primary"
-                                    size="auto"
-                                    text={t('login.login')}
-                                    onClick={() => handleLogin()}
-                                />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="hidden md:block bg-white  px-12 py-6 text-left">
-                        <Image src={LoginIcon} width={200} height={400} />
-                    </div>
-                </div>
-            </div>
-        </div>
+                                    onPress={handleLogin}
+                                    css={{ mx: 'auto' }}
+                                >
+                                    Iniciar Sesión
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </Grid.Container>
+                </Grid>
+            </Grid.Container>
+        </>
     )
 }
 
